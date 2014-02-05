@@ -12,6 +12,7 @@ Lesson 1: What's lacking about traditional callbacks?
 -------------
 Consider the following example:
 
+```
 getEmail({
   name: 'Asa'
 }, function(err, email) {
@@ -21,6 +22,7 @@ getEmail({
     console.log('Your email is: ' + email);
   }
 });
+```
 
 We have a function that makes an async call to a server to determine an email, given a name. For a simple case like this, our traditional callback method is fine. However, let's think about a few complications:
 
@@ -34,8 +36,10 @@ These are just a few issues that can be problematic for traditional callbacks. T
 
 To get a better idea of the downsides of callbacks, let's complete the first exercise.
 
-Exercise 1: Traditional Callbacks - *exercise/traditional-callbacks.js*
+Exercise 1: Traditional Callbacks
 ---------------------------------
+**exercise/traditional-callbacks.js**
+
 For this exercise, you'll need to complete a function that can process multiple async operations in parallel, before returning the combined result.
 
 Lesson 2: Enter Promises!
@@ -49,6 +53,8 @@ At the core, a promise is simply an object with a **.then()** method. You use th
 
 There's a lot more to promises, but the simple **.then()** invocation is the essence of the promise. Now let's try it out!
 
-Exercise 2: Promise Hello World - *exercise/promise-hello-world.js*
+Exercise 2: Promise Hello World
 ---------------------------------
+**exercise/promise-hello-world.js**
+
 For this exercise, you'll need to complete a function that can consume a promise and pass the result to a callback.
