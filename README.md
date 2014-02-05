@@ -51,6 +51,18 @@ Promises aleviate some of the major pain points of traditional callbacks. Here a
 
 At the core, a promise is simply an object with a **.then()** method. You use the **.then()** method to attach callback methods to the operation. When the operation completes, any methods attached via **.then()** will be called. When the operation behind a promise is completed, we would say that the promise has been **resolved**. If the operation completes successfully, we say that the promise is both **resolved** and **fulfilled**. When a promise is fulfilled, there must be a **fulfillment value**. That **fulfillment value** is always the one and only argument passed to callbacks attached with the **.then()** method.
 
+```
+//Kick of an async operation to, given an id, retrieve a person object
+var promise = getPerson(id);
+
+//Attach a callback handler to do something when we get
+//a person object
+promise.then(function(person) {
+  //do something with the fulfillment value 'person'
+  console.log(person);
+});
+```
+
 There's a lot more to promises, but the simple **.then()** invocation is the essence of the promise. Now let's try it out!
 
 Exercise 2: Promise Hello World
