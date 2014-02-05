@@ -2,24 +2,24 @@ var employeeStore = {
 	employees: [
 		{
 			getTitle: function() {
-				return mockDefer('Big Cheese', 500);
+				return mockPromise('Big Cheese', 500);
 			},
 			getName: function() {
-				return mockDefer('Vinay', 2000);
+				return mockPromise('Vinay', 2000);
 			},
 			getBoss: function() {
-				return mockDefer(1, 100);
+				return mockPromise(1, 100);
 			}
 		},
 		{
 			getTitle: function() {
-				return mockDefer('Ultra Mega Cheese', 500);
+				return mockPromise('Ultra Mega Cheese', 500);
 			},
 			getName: function() {
-				return mockDefer('Steve', 300);
+				return mockPromise('Steve', 300);
 			},
 			getBoss: function() {
-				return mockDefer(2, 2000);
+				return mockPromise(2, 2000);
 			}
 		}
 	],

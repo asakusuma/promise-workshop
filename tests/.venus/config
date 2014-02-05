@@ -1,0 +1,16 @@
+// Configuration file for Venus
+// All paths can be relative (to the location of this config file) or absolute
+{
+  default: {
+    library: 'mocha'
+  },
+  hostname: 'localhost',
+  includes: {
+    default: [
+      '../../lib/bluebird.js',
+      '../../lib/sinon.js',
+      '../../lib/util.js',
+      '../../lib/loader.js'
+    ]
+  }
+}

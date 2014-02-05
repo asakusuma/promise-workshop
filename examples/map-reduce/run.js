@@ -1,13 +1,13 @@
 function name1() {
-	return mockDefer('Chad', 500);
+	return mockPromise('Chad', 500);
 }
 
 function name2() {
-	return mockDefer('Nate', 800);
+	return mockPromise('Nate', 800);
 }
 
 function name3() {
-	return mockDefer('Asa', 200);
+	return mockPromise('Asa', 200);
 }
 
 function mapFunc(item, index, arrayLength) {
