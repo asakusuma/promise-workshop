@@ -8,6 +8,19 @@ What is a Promise?
 -------------
 A promise is an object that represents a potentially asynchronous operation. It's simply an object oriented way to setup and perform async calls. In other words, it's a better alternative to the traditional method of kicking off an operation by calling a function and passing in a callback function as a parameter.
 
+Stuff to read first
+---------
+TODO
+
+Lesson 0: JavaScript Asynchronous Programming 101
+-------------
+
+Event loop stuff
+
+Here are a few common JavaScript async misconceptions:
+* If there's a callback, it means the callback is asynchronous
+* JavaScript code can run concurently (without web workers)
+
 Lesson 1: What's lacking about traditional callbacks?
 -------------
 Consider the following example:
@@ -63,6 +76,13 @@ promise.then(function(person) {
 });
 ```
 
+In many ways, **.then()** operates like jQuery's **$(document).ready()**:
+
+* When you pass a callback to **$(document).ready()**, the callback isn't executed until the document is ready. Likewise, the callback to **.then()** doesn't execute until the promise is resolved.
+* Callbacks to **$(document).ready()** are guaranteed to only execute once. Same for **.then()**.
+* You can call **$(document).ready()** and pass a callback after the document is ready, and the callback will fire immediately. Same for **.then()** (sort of, more on this later).
+* You can pass an unlimited number of callbacks to **$(document).ready()**, and they will all execute at the appropriate time. Same for **.then()**.
+
 There's a lot more to promises, but the simple **.then()** invocation is the essence of the promise. Now let's try it out!
 
 Exercise 2: Promise Hello World
@@ -70,3 +90,19 @@ Exercise 2: Promise Hello World
 **exercise/promise-hello-world.js**
 
 For this exercise, you'll need to complete a function that can consume a promise and pass the result to a callback.
+
+Lesson 3: Promise error handling and debugging
+-------------------------
+
+There are two types of "errors," that can occur, with regards to a promise.
+
+First, the promise can be rejected. This really isn't an error, as far as the promise is concerned. The rejection could be triggered by an error, like a 500 response, but that error happens outside the immediate scope of the promise. Thus, we should remember to call a rejection a rejection, and not an error. Likewise, the second parameter to the **.then()** function is a rejection handler, not an error handler.
+
+Second, there could be an actual JavaScript error within the fulfillment or rejection handler of a promise. The A+ Spec doesn't mandate much about what should happen in the event of a JavaScript error, so different promise implementations do different things and provide different tools and features for debugging and error handling.
+
+//Tech review this:
+What is consistant accross promise implementations is the fact that handler callbacks are all wrapped in a try catch. The biggest takeaway here is that an error can occur in a handler and get swallowed, thereby preventing the error from ever surfacing in the console. Thus, it is paramount that a developer **1)** always understand how a promise implementation handles errors and **2)** leverages the available features to appropriately handle errors.
+
+Exercise 3: Promise error handling and debugging
+-------------------------
+For our purposes, we will be learning about how the Bluebird promise implementation handles errors.
