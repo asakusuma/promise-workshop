@@ -10,7 +10,8 @@ A promise is an object that represents a potentially asynchronous operation. It'
 
 Stuff to read first
 ---------
-TODO
+* http://domenic.me/2012/10/14/youre-missing-the-point-of-promises/
+* http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics
 
 Lesson 0: JavaScript Asynchronous Programming 101
 -------------
