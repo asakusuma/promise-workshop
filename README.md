@@ -8,11 +8,6 @@ What is a Promise?
 -------------
 A promise is an object that represents a potentially asynchronous operation. It's simply an object oriented way to setup and perform async calls. In other words, it's a better alternative to the traditional method of kicking off an operation by calling a function and passing in a callback function as a parameter.
 
-Stuff to read first
----------
-* http://domenic.me/2012/10/14/youre-missing-the-point-of-promises/
-* http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics
-
 Lesson 0: JavaScript Asynchronous Programming 101
 -------------
 
@@ -107,3 +102,8 @@ What is consistant accross promise implementations is the fact that handler call
 Exercise 3: Promise error handling and debugging
 -------------------------
 For our purposes, we will be learning about how the Bluebird promise implementation handles errors.
+
+Further Reading
+---------
+* http://domenic.me/2012/10/14/youre-missing-the-point-of-promises/
+* http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics
