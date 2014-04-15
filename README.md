@@ -13,7 +13,7 @@ Lesson 0: JavaScript Asynchronous Programming 101
 
 Event loop stuff
 
-Here are a few common JavaScript async misconceptions:
+Here are two common JavaScript async misconceptions:
 * If there's a callback, it means the callback is asynchronous
 * JavaScript code can run concurently (without web workers)
 
@@ -94,10 +94,32 @@ There are two types of "errors," that can occur, with regards to a promise.
 
 First, the promise can be rejected. This really isn't an error, as far as the promise is concerned. The rejection could be triggered by an error, like a 500 response, but that error happens outside the immediate scope of the promise. Thus, we should remember to call a rejection a rejection, and not an error. Likewise, the second parameter to the **.then()** function is a rejection handler, not an error handler.
 
-Second, there could be an actual JavaScript error within the fulfillment or rejection handler of a promise. The A+ Spec doesn't mandate much about what should happen in the event of a JavaScript error, so different promise implementations do different things and provide different tools and features for debugging and error handling.
+Second, there could be an actual JavaScript error within the fulfillment or rejection handler of a promise. When a JavaScript error occurs in a fulfillment or rejection handler, the error is "swallowed" by the promise. This means that execution stops within context of the handler and no error surfaces in the error console. Instead, the error is surfaced by rejecting the promise returned by the then() function. Let's look at an example:
 
-//Tech review this:
-What is consistant accross promise implementations is the fact that handler callbacks are all wrapped in a try catch. The biggest takeaway here is that an error can occur in a handler and get swallowed, thereby preventing the error from ever surfacing in the console. Thus, it is paramount that a developer **1)** always understand how a promise implementation handles errors and **2)** leverages the available features to appropriately handle errors.
+```
+myPromise.then(function(result) {
+  return someUndefinedVariable + result;
+}, function(err) {
+  console.log(err);
+});
+```
+In the case where **myPromise** is fulfilled and the fulfill handler gets called, **someUndefinedVariable** is undefined and will throw an undefined variable error. So how will the error surface? In this case, no error will be surfaced. Why doesn't the error get surfaced in the rejection handler? Because the **myPromise** has technically been resolved, so we can't call it's rejection handler. Instead the then() handler rejects the promise that it returns:
+
+```
+myPromise.then(function(result) {
+  return someUndefinedVariable + result;
+}, function(err) {
+  //This handler never gets called
+  console.log(err);
+}).then(null, function(err) {
+  //THIS error handler will get called
+  console.log(err);
+});
+```
+
+The biggest takeaway here is that an error can occur in a handler and get swallowed, thereby preventing the error from ever surfacing in the console.
+
+**TL;DR: Always have a final then() statement to catch JavaScript errors**
 
 Exercise 3: Promise error handling and debugging
 -------------------------
