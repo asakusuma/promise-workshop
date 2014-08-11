@@ -38,8 +38,8 @@ We have a function that makes an async call to a server to determine an email, g
 * What if I want to kick off the request to retrieve the email, but I don't yet know what function should be called once the request comes back?
 * What if I want to make a batch request to retrieve the emails for 10 different names?
 * What if, later in code execution, I want to use the email for a given person? How do I know if the email request has finished?
-* What if, once I get an email, I want to make a second request that depends on the email?
-* Given the previous situation, what if I don't want the email callback to know anything about the second request?
+* What if, once I get an email, I want to do two other operations that depend on the email?
+* Given the previous situation, what if I don't want the email callback to know anything about the two other operations?
 
 These are just a few issues that can be problematic for traditional callbacks. The solutions are messy. To avoid messy solutions, developers often settle for in-efficient solutions.
 
