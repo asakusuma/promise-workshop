@@ -18,7 +18,7 @@ function concatMessages(results) {
 	return out;
 }
 
-PromiseLibrary.map([name1(), name2(), name3()], function(item, index, arrayLength) {
+RSVP.map([name1(), name2(), name3()], function(item, index, arrayLength) {
 	return 'Hello my name is ' + item;
 }).then(concatMessages).then(showMessage);
 

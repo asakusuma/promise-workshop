@@ -51,7 +51,7 @@ function fetchBoss(bossID) {
 		bossID = bossID.boss;
 	}
 	var boss = employeeStore.getEmployee(bossID);
-	return PromiseLibrary.all([
+	return RSVP.all([
 		boss.getName(),
 		boss.getTitle(),
 		boss.getBoss()
@@ -62,7 +62,7 @@ var vinay = employeeStore.getEmployee(0);
 
 
 //The Slow way
-PromiseLibrary.all([
+RSVP.all([
 	vinay.getName(),
 	vinay.getTitle(),
 	vinay.getBoss()
@@ -76,7 +76,7 @@ PromiseLibrary.all([
 /*
 //The fast way
 var vinaysBossID = vinay.getBoss();
-var printVinay = PromiseLibrary.all([
+var printVinay = RSVP.all([
 	vinay.getName(),
 	vinay.getTitle(),
 	vinaysBossID
@@ -84,7 +84,7 @@ var printVinay = PromiseLibrary.all([
 .then(formatEmployee)
 .then(printEmployee);
 
-PromiseLibrary.all([
+RSVP.all([
 	vinaysBossID.then(fetchBoss),
 	printVinay
 ]).then(function(results) {
