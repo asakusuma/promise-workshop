@@ -7,8 +7,8 @@ Deck: https://www.slideshare.net/asakusuma/comfortable-promises-38013198
 Exercises
 ----
 
-0. Hello World
-1. Chaining
+0. [Hello World](exercises/0-hello-world)
+1. [Chaining](exercises/1-chaining/README.md)
 2. Creating promises
 3. Parallel Processing/Consolidation promises
 4. Error handling
