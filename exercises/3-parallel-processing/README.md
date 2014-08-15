@@ -1,4 +1,4 @@
-Exercise 1: Chaining
+Exercise 3: Parallel Processing
 =======================
 
-Fetch 
+Let's take two promises and consolidate them into one promise that will fulfill when both promises fulfill.
