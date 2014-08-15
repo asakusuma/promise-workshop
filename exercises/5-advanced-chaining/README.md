@@ -1,4 +1,4 @@
-Exercise 1: Chaining
+Exercise 5: Chaining
 =======================
 
-Fetch 
+Time for some advanced chaining. Aggregate date from to sequential promises.
