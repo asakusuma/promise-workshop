@@ -1,9 +1,12 @@
 /**
- * Fetch the person, fetch the message, map the message, print the message
+ * Complete the function so it returns a promise
+ *
+ *  Promise constructor: RSVP.Promise
+ *  Deferred factory function: RSVP.defer
  */
 
-api.getPerson(function(err, person) {
-  api.getMessage(person, function(err, message) {
-    showMessage(api.mapMessage(message));
-  });
-});
+function getMessagePromise() {
+  return mockPromiseReject('Implement me!', 0);
+};
+
+getMessagePromise().then(showMessage, showErrorMessage);

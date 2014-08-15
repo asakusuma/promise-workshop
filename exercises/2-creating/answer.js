@@ -1,8 +1,32 @@
 /**
- * Fetch the person, fetch the message, map the message, print the message
+ * Complete the function so it returns a promise
  */
 
-api.getPersonPromise()
-  .then(api.getMessagePromise)
-  .then(api.mapMessage)
-  .then(showMessage);
+function getMessagePromise() {
+  return new RSVP.Promise(function(f, r) {
+    api.getMessage(function(err, message) {
+      if (err) {
+        r(err);
+      } else {
+        f(message);
+      }
+    });
+  });
+
+  /*
+  // ALTERNATIVE DEFERRED SYNTAX
+  var d = RSVP.defer();
+
+  api.getMessage(function(err, message) {
+    if (err) {
+      d.reject(err);
+    } else {
+      d.resolve(message);
+    }
+  });
+
+  return d.promise;
+  */
+};
+
+getMessagePromise().then(showMessage, showErrorMessage);
