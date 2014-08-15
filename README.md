@@ -8,12 +8,12 @@ Exercises
 ----
 
 0. [Hello World](exercises/0-hello-world)
-1. [Chaining](exercises/1-chaining/README.md)
-2. Creating promises
-3. Parallel Processing/Consolidation promises
-4. Error handling
-5. Advanced Chaining
-6. Utility functions (hashSettled, map)
+1. [Chaining](exercises/1-chaining)
+2. [Creating promises](exercises/2-creating)
+3. [Parallel Processing/Promises Consolidation](exercises/3-parallel-processing)
+4. [Error handling](exercises/4-error-handling)
+5. [Advanced Chaining](exercises/5-advanced-chaining)
+6. [Utility functions (hashSettled, map)](exercises/6-utility)
 
 
 Good reads
