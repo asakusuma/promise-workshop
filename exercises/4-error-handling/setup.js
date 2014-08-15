@@ -1,44 +1,22 @@
-var person = {
-  firstName: 'Derek',
-  lastName: 'Brown',
-  favoriteTeam: 'Eagles'
-};
-
 var api = {
   /**
-   * Returns a promise that resolves an person after half a second
-   * @param {function} callback - The callback
+   * Throws a JS error
    */
-  getPerson: function(cb) {
-  	setTimeout(function() {
-      cb(null, person);
-    }, 500);
+  throwError: function() {
+    throw 'I threw an error!';
   },
 
   /**
-   * Returns a promise that resolves a person after half a second
-   * @returns {object} - Promise that resolves a name
+   * Causes a JS error
    */
-  getPersonPromise: function() {
-    return mockPromise(person, 500);
+  causeError: function() {
+    someUndefined++;
   },
 
   /**
-   * Given a person object, returns a message
-   * @param {object} person - The person object
-   * @returns {string} - Promise that resolves a message
+   * Returns a rejected promise
    */
-  getMessage: function(person, cb) {
-    setTimeout(function() {
-      cb(null, person.firstName + ' ' + person.lastName + ' likes the ' + person.favoriteTeam);
-    }, 500);
-  },
-
-  getMessagePromise: function(person) {
-    return mockPromise(person.firstName + ' ' + person.lastName + ' likes the ' + person.favoriteTeam, 500);
-  },
-
-  mapMessage: function(message) {
-    return message + ', the 2nd worst team in the NFC east.';
+  returnError: function() {
+    return RSVP.reject('A rejected promise');
   }
 };

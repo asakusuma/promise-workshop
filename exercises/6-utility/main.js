@@ -1,9 +1,26 @@
 /**
- * Fetch the person, fetch the message, map the message, print the message
+ * Print out the array of promise messages. Experiment with map() and hash().
+ * Spread is currently not part of RSVP, so use api.spread()
+ *
+ * https://github.com/tildeio/rsvp.js/
  */
 
-api.getPerson(function(err, person) {
-  api.getMessage(person, function(err, message) {
-    showMessage(api.mapMessage(message));
-  });
+function nameToMessage(item) {
+  return 'Hello my name is ' + item;
+};
+
+var arrayOfMessagePromises = RSVP.map([
+  api.getName1(),
+  api.getName2(),
+  api.getName3()
+], nameToMessage).then(_.partial(_.each, _, appendMessage));
+
+var hashOfMessagePromises = RSVP.hash({
+  chad: api.getName1(),
+  nate: api.getName2(),
+  asa: api.getName3()
+}).then(_.partial(api.mapHash, _, nameToMessage)).then(function(messages) {
+  appendMessage(messages.chad);
+  appendMessage(messages.nate);
+  appendMessage(messages.asa);
 });

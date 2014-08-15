@@ -1,8 +1,16 @@
 /**
- * Fetch the person, fetch the message, map the message, print the message
+ * Print out the array of promise messages. Experiment 
+ *
+ * https://github.com/tildeio/rsvp.js/
  */
 
-api.getPersonPromise()
-  .then(api.getMessagePromise)
-  .then(api.mapMessage)
-  .then(showMessage);
+function nameToMessage = function(item) {
+  return 'Hello my name is ' + item;
+};
+
+var arrayOfMessagePromises = RSVP.map([
+  api.getName1(),
+  api.getName2(),
+  api.getName3()
+], nameToMessage);
+

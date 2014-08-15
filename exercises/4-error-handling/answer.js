@@ -1,8 +1,7 @@
 /**
- * Fetch the person, fetch the message, map the message, print the message
+ * Print out all the error messages
  */
 
-api.getPersonPromise()
-  .then(api.getMessagePromise)
-  .then(api.mapMessage)
-  .then(showMessage);
+RSVP.resolve().then(api.throwError, appendErrorMessage).then(null, appendErrorMessage);
+RSVP.resolve().then(api.causeError, appendErrorMessage).then(null, appendErrorMessage);
+RSVP.resolve().then(api.returnError, appendErrorMessage).then(null, appendErrorMessage);

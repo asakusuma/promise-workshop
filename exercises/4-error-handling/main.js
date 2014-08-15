@@ -1,9 +1,7 @@
 /**
- * Fetch the person, fetch the message, map the message, print the message
+ * Print out all the rejection reasons messages
  */
 
-api.getPerson(function(err, person) {
-  api.getMessage(person, function(err, message) {
-    showMessage(api.mapMessage(message));
-  });
-});
+RSVP.resolve().then(api.throwError, appendErrorMessage);
+RSVP.resolve().then(api.causeError, appendErrorMessage);
+RSVP.resolve().then(api.returnError, appendErrorMessage);
