@@ -6,7 +6,7 @@ var people = {
   },
   2: {
     firstName: 'Andy',
-    lastNAme: 'Lottman',
+    lastName: 'Lottman',
     boss: 3
   },
   3: {
