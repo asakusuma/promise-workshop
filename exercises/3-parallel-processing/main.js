@@ -1,6 +1,6 @@
 /**
- * Get the name asynchronously and print out a greeting.
+ * Wait for a message AND the first click on the screen, then output the message
  */
-api.getNamePromise().then(function(name) {
-  return 
-});
+
+var messageP = api.getMessage();
+var clickP = api.firstClick();
