@@ -1,0 +1,21 @@
+{
+  "name": "promise-workshop",
+  "version": "0.0.2",
+  "decription": "JS Promises workshop",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-jsdoc": "*"
+  },
+  "license": "MIT",
+  "keywords": [
+    "promises"
+  ],
+  "author": {
+    "name": "Asa Kusuma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asakusuma/promise-workshop.git"
+  },
+  "dependencies": {}
+}
