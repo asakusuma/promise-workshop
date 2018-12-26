@@ -16,7 +16,7 @@ function addBoss(employee) {
 }
 
 function createMessage(r) {
-  return r.employee.firstName + ' reports to ' + r.boss.firstName;
+  return r.employee.firstName + ' reports to ' + r.boss;
 }
 
 function printBoss(id) {
